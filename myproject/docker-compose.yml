@@ -1,0 +1,45 @@
+version: '2'
+services:
+  db:
+    container_name: db
+    build: 
+      context: ./mysql
+      # if you are behind proxy
+      # args:
+      #   - http_proxy=http://10.1.1.1:3128
+      #   - https_proxy=https://10.1.11.1:3128
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+
+  php:
+    container_name: php
+    build:
+      context: ./php
+      # args:
+      #  - http_proxy=http://10.1.1:3128
+      #  - https_proxy=https://10.1.1.1:3128
+    depends_on:
+      - db
+    links:
+      - db:mysql
+    ports:
+      - "8080:80"
+      - "8081:443"
+    restart: always
+    volumes:
+      - ./volume-web:/var/www/html/
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    restart: always
+    build:
+      context: ./phpmyadmin
+      # args:
+      #  - http_proxy=http://10.1.1.1:3128
+      #  - https_proxy=https://10.1.1.1:3128
+    links:
+      - db:mysql
+    ports:
+      - 8082:80
