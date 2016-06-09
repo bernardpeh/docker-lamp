@@ -1,6 +1,6 @@
 FROM php:5.6-apache
 
-ENV APACHE_LOG_DIR /var/log/apache2
+# ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_RUN_DIR /var/run/apache2
 
 # allow sites
