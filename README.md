@@ -44,3 +44,21 @@ http://192.168.10.10:8082 (phpmyadmin)
 * edit docker-compose.yml and Dockerfile in individual folders. They should be easily understood.
 * To run sql post-mysql container bootup, overwrite mysql/db.sql
 
+## Tips
+
+* To see the logs
+
+```
+docker logs -f container_id
+```
+
+* To go to the shell of each container
+
+```
+docker exec -it container_id bash
+```
+
+* To see all the docker compose process
+```
+docker-compose ps
+```
