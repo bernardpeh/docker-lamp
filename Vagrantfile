@@ -98,13 +98,13 @@ Vagrant.require_version ">= 1.7.3"
 Vagrant.configure("2") do |config|
   config.vm.define "boot2docker"
 
-  config.vm.box = "boot2docker"
+  config.vm.box = "blinkreaction/boot2docker"
   config.vm.box_version = "1.11.2"
   config.vm.box_check_update = true
 
   ## Network ##
 
-  box_ip = $vconfig['ip']['primary']  # e.g. 192.168.199.10
+  box_ip = $vconfig['ip']['primary']  # e.g. 192.168.10.10
   host_ip = box_ip.gsub(/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/, '\1.\2.\3.1')  # e.g. 192.168.10.1
 
   # Primary private network IP (default: 192.168.10.10)

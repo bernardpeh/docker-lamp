@@ -32,3 +32,7 @@ docker-compose up -d
 ## Tips
 
 * for mac and windows users, you will find that its much faster to use nfs or samba for file sharing, and hence the reason why we need another vagrant vm.
+
+## Acknowledgement
+
+* vagrant script from https://github.com/blinkreaction/boot2docker-vagrant
